@@ -1,7 +1,7 @@
 name: Pull request to main
 
 on:
-  pull request:
+  pull_request:
     branches:
       - main
 
@@ -22,7 +22,7 @@ jobs:
     
     # Steps of the workflow:
     steps:
-    
+
       # Prep Google keyfile
       - run: mkdir -p "$(dirname $DBT_PROFILE_KEYFILE)"
       - run: echo "$KEYFILE_CONTENTS" > $DBT_PROFILE_KEYFILE
