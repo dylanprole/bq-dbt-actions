@@ -1,0 +1,14 @@
+bq_transform:
+  outputs:
+    dev:
+      dataset: development
+      job_execution_timeout_seconds: 200
+      job_retries: 1
+      keyfile: /Users/dylan/mage_zoomcamp_sa.json
+      location: US
+      method: service-account
+      priority: interactive
+      project: taxi-rides-ny-412407
+      threads: 1
+      type: bigquery
+  target: dev
