@@ -5,8 +5,8 @@ models:
   - name: my_first_dbt_model
     description: "A starter dbt model"
     columns:
-      - name: id
-        description: "The primary key for this table"
+      - name: environment
+        description: "The envronment where dbt is writing to"
         tests:
           - unique
           - not_null
@@ -14,8 +14,8 @@ models:
   - name: my_second_dbt_model
     description: "A starter dbt model"
     columns:
-      - name: id
-        description: "The primary key for this table"
+      - name: environment
+        description: "The envronment where dbt is writing to"
         tests:
           - unique
           - not_null

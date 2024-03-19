@@ -1,7 +1,7 @@
-name: Pull request to main
+name: Deploy dbt build to production on push to main
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
@@ -43,7 +43,7 @@ jobs:
           dbt --version
 
       - name: Test connection to BigQuery
-        run: dbt debug
+        run: dbt debug --target prod
 
       - name: Build dbt repository
-        run: dbt build
+        run: dbt build --target prod
