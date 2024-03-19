@@ -1,27 +1,27 @@
+{{
+  config(
+    materialized = 'table'
+    )
+}}
 
-/*
-    Welcome to your first dbt model!
-    Did you know that you can also configure models directly within SQL files?
-    This will override configurations stated in dbt_project.yml
+with
 
-    Try changing "table" to "view" below
-*/
+source_data as (
 
-{{ config(materialized='table') }}
+    {% if target.name == 'prod' %}
 
-with source_data as (
+    select 'prod_environment' as environment
 
-    select 1 as id
-    union all
-    select null as id
+    {% elif target.name == 'staging' %}
+
+    select 'staging_environment' as environment
+
+    {% else %}
+
+    select 'dev_environment' as environment
+
+    {% endif %}
 
 )
 
-select *
-from source_data
-
-/*
-    Uncomment the line below to remove records with null `id` values
-*/
-
-where id is not null
+select * from source_data
