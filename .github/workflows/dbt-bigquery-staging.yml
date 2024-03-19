@@ -1,4 +1,4 @@
-name: Pull request to main
+name: Test dbt build on pull request
 
 on:
   pull_request:
@@ -43,7 +43,7 @@ jobs:
           dbt --version
 
       - name: Test connection to BigQuery
-        run: dbt debug --target dev
+        run: dbt debug --target staging
 
       - name: Build dbt repository
-        run: dbt build --target dev
+        run: dbt build --target staging
